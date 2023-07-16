@@ -6,6 +6,8 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <!-- Add the Bootstrap Icons CSS file -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+<!-- Include the Chart.js library -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
   .jumbotron h1.display-4 {
     font-size: 32px;
@@ -39,10 +41,40 @@
     <div class="col-12">
       <div class="info-box">
         <p>When asked, "My partner makes choices that are good for both of us," 78% of people responded with 'yes'. Your affirmative response places you in alignment with the majority, signifying a balanced relationship decision-making.</p>
+        <!-- Add a canvas element for the chart -->
+        <canvas id="myChart"></canvas>
       </div>
     </div>
   </div>
   <a href="index.html" class="btn btn-secondary btn-lg btn-block">Back</a>
 </div>
+<!-- Initialize the chart -->
+<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+        labels: ['Yes', 'No'],
+        datasets: [{
+            data: [78, 22],
+            backgroundColor: [
+                'rgba(54, 162, 235, 0.5)',
+                'rgba(255, 99, 132, 0.5)'
+            ],
+            borderColor: [
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 99, 132, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        legend: {
+            position: 'bottom',
+        },
+    }
+});
+</script>
 </body>
 </html>
