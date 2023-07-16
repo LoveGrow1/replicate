@@ -30,19 +30,28 @@
     padding: 15px 20px;
     margin-top: 20px;
   }
+  
+  /* Add the new CSS class */
+  .chart-container {
+    position: relative;
+    height: 100px;
+    width: 100px;
+  }
 </style>
 </head>
 <body>
 <div class="container">
   <div class="jumbotron text-center">
-    <h1 class="display-4 text-primary"><i class="bi bi-people-fill"></i> Population statistics</h1> <!-- include icon in the heading -->
+    <h1 class="display-4 text-primary"><i class="bi bi-people-fill"></i> Population statistics</h1>
   </div>
   <div class="row">
     <div class="col-12">
       <div class="info-box">
         <p>When asked, "My partner makes choices that are good for both of us," 78% of people responded with 'yes'. Your affirmative response places you in alignment with the majority, signifying a balanced relationship decision-making.</p>
-        <!-- Add a canvas element for the chart -->
-        <canvas id="myChart"></canvas>
+        <!-- Wrap the canvas element inside the new div -->
+        <div class="chart-container">
+          <canvas id="myChart"></canvas>
+        </div>
       </div>
     </div>
   </div>
@@ -70,6 +79,7 @@ var myChart = new Chart(ctx, {
     },
     options: {
         responsive: true,
+        maintainAspectRatio: true,
         legend: {
             position: 'bottom',
         },
